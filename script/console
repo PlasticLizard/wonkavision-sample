@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+require File.expand_path File.join( File.dirname(__FILE__), "../lib/wonkavision-sample")
+require "wonkavision-sample/runner"
+
+ARGV << '-c'
+runner = Wonkavision::Sample::Runner.new(ARGV)
+runner.run
