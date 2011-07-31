@@ -57,12 +57,12 @@
 # end
 
 module Wonkavision
-	module Sample
-		class TestAggregation
-			include Wonkavision::Analytics::Aggregation
+  module Sample
+    class TestAggregation
+      include Wonkavision::Analytics::Aggregation
 
-			aggregates TestFacts
+      aggregates TestFacts
 
-		end
-	end
+    end
+  end
 end

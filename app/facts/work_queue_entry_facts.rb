@@ -20,19 +20,19 @@
 #     end
 
 #     snapshot :daily
-    
+  
 #     dynamic :work_queue_entry_dynamic
-      
+   
 #   end
 # end
 
 module Wonkavision
-	module Sample
-		class TestFacts
-			include Wonkavision::Analytics::Facts
+  module Sample
+    class TestFacts
+      include Wonkavision::Analytics::Facts
 
-			record_id :id
+      record_id :id
 
-		end
-	end
+    end
+  end
 end

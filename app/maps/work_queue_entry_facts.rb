@@ -1,5 +1,5 @@
 Wonkavision::MessageMapper.register :test_facts do
-	value :id
+  value :id
 end
 # Wonkavision::MessageMapper.register :work_queue_entry_facts do
 
