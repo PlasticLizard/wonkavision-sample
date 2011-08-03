@@ -6,15 +6,6 @@ GIT
       eventmachine (>= 1.0.0.beta.1)
 
 GIT
-  remote: https://github.com/PlasticLizard/wonkavision.git
-  revision: 5b394f85eeb71988a007a8f96ee07dee9830b676
-  branch: crackpipe
-  specs:
-    wonkavision (0.9.0)
-      activesupport (>= 2.3)
-      i18n
-
-GIT
   remote: https://github.com/postrank-labs/goliath.git
   revision: be9e52df19f7a48ed418eff7b484642cd8f821cf
   specs:
@@ -29,6 +20,13 @@ GIT
       rack (>= 1.2.2)
       rack-contrib
       rack-respond_to
+
+PATH
+  remote: ~/Code/wonkavision
+  specs:
+    wonkavision (0.9.0)
+      activesupport (>= 2.3)
+      i18n
 
 GEM
   remote: http://rubygems.org/

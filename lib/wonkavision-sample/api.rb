@@ -1,13 +1,17 @@
 require "goliath"
-require "wonkavision-sample/api_utils"
+require "wonkavision/api/helper"
 require "time"
 
 module Wonkavision::Sample
   class Query < Goliath::API
-   
+    
+    def initialize(helper)
+      @helper = helper
+    end
+
     def execute_query(env)
       aggregation = "Wonkavision::Sample::#{env.params[:aggregation]}".constantize
-      query = ApiUtils.query_from_params(env.params)
+      query = @helper.query_from_params(env.params)
 
       aggregation.execute_query(query)
     end            
@@ -20,22 +24,12 @@ module Wonkavision::Sample
 
   class Facts < Goliath::API
 
-    def facts_for(env)
-      aggregation = "Wonkavision::Sample::#{env.params[:aggregation]}".constantize
-      filters, options = ApiUtils.facts_query_from_params(env.params)
-      facts_data = aggregation.facts_for(filters, options)
-      response = {
-        :facts_class => aggregation.facts.name.split("::").pop,
-        :data => facts_data
-      }
-      if facts_data.kind_of?(Wonkavision::Analytics::Paginated)
-        response[:pagination] = facts_data.to_h
-      end
-      response
+    def initialize(helper)
+      @helper = helper  
     end
 
     def response(env)
-      [200, {}, facts_for(env)]
+      [200, {}, @helper.facts_for(env.params)]
     end
 
   end
@@ -48,11 +42,11 @@ module Wonkavision::Sample
     use Goliath::Rack::Params
 
     get '/query/:aggregation' do
-      run Query.new
+      run Query.new(Wonkavision::Api::Helper.new("Wonkavision::Sample"))
     end
 
     get '/facts/:aggregation' do
-      run Facts.new
+      run Facts.new(Wonkavision::Api::Helper.new("Wonkavision::Sample"))
     end
 
     get '/admin/facts/:facts/purge' do

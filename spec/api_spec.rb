@@ -12,7 +12,7 @@ describe Wonkavision::Sample::Api do
   
   it 'responds to query requests' do
     with_api(Wonkavision::Sample::Api, :config => @config) do
-      get_request({:path => "/query/TestAggregation"}, err) do |c|
+      get_request({:path => "/query/Aggregation"}, err) do |c|
         c.response_header.status.should == 200  
       end
     end
@@ -20,7 +20,7 @@ describe Wonkavision::Sample::Api do
 
   it "responds to facts requests" do
     with_api(Wonkavision::Sample::Api, :config => @config) do
-      get_request({:path => "/facts/TestAggregation"}, err) do |c|
+      get_request({:path => "/facts/Aggregation"}, err) do |c|
         c.response_header.status.should == 200
       end
     end
