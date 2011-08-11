@@ -54,7 +54,7 @@ module Wonkavision::Sample
       switches << 'v' if @options[:verbose]
       argv << switches unless switches == '-'
       argv << '-a' << @options[:address] if @options[:address]
-      argv << '-p' << @options[:port] if @options[:port]
+      argv << '-p' << @options[:port].to_s if @options[:port]
       argv << '-l' << File.join(@options[:log_dir], "rpm_analytics_api") if @options[:log_dir]
       argv
     end
@@ -65,6 +65,7 @@ module Wonkavision::Sample
     def options_parser
       @options ||= {
        :env => :development,
+       :port => 9095
        #:config => File.join( Wonkavision::Sample::CONFIG_DIR, "worker.rb" )
       }
 
