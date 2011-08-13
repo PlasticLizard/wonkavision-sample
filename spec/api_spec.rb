@@ -54,6 +54,16 @@ describe Wonkavision::Sample::Api do
     end
   end
 
+  it "accepts events" do
+    helper = stub(:submit_event => true)
+    Wonkavision::Sample::Api.should_receive(:helper){helper}
+    with_api(Wonkavision::Sample::Api, :config => @config) do
+      post_request({:path => "/events/hi/there"}, err) do |c|
+        c.response_header.status.should == 200
+      end
+    end
+  end
+
   it "returns 404 if the path doesn't match a route" do
     with_api(Wonkavision::Sample::Api, :config => @config) do
       get_request({:path => "/crapola"}, err) do |c|

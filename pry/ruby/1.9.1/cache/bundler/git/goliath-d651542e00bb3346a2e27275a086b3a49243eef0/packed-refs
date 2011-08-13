@@ -1,0 +1,13 @@
+# pack-refs with: peeled 
+b3313120fe0dac185f225e1d2f980fb15eb6df6b refs/tags/v0.9.2
+^4c417e59223a12669f7df813e070fefe426cb7bb
+1666c79a8d375cce3889ef4bb069af50d9cd40e1 refs/tags/v0.9.1
+^3910f75fcf74a52a8260e1e3b4473027bb9baa3e
+5d3e92b40c5c83f71db5acf79c36db16b7128a31 refs/tags/v0.9.0
+^273cb235df969acdc599398ae17ffd0d87cbe480
+8ea448c7551cc24c0c0cd26d07798f4095f1343e refs/heads/websockets
+7295f1766d43f23411176bbb3fdd265e13e3d7c7 refs/heads/new_aroundware
+8af13667dd4ce6b44fbb6792d74923443b44be17 refs/heads/master
+42260c42cb984b6303076cc79c082be39bbeaf23 refs/heads/logger
+90eb28671efca51e462b739dbb6b18ddc4d94ac4 refs/heads/http_router
+b1d8be9f2aaa4f4d2a6f90e03b8fcbe3a91767bb refs/heads/gh-pages

@@ -1,6 +1,7 @@
 require "goliath"
 require "wonkavision/api/helper"
 require "time"
+require "pry"
 
 module Wonkavision::Sample
 
@@ -26,6 +27,13 @@ module Wonkavision::Sample
       run Proc.new { |env|
         facts = Api.helper.facts_for(env.params)
         [200, {}, facts]
+      }
+    end
+
+    post '/events/*glob' do
+      run Proc.new { |env|
+        Api.helper.submit_event(env, env.params)
+        [200, {}, ["Thanks"]]
       }
     end
 
